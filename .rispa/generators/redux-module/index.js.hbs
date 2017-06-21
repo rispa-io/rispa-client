@@ -23,7 +23,6 @@ export const handleLoopAction = (state, payload) =>
     Effects.promise()
   )
 
-
 const reducer = createReducer(on => {
   on(action, handleAction)
 }, initialState)

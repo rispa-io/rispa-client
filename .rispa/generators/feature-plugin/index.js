@@ -12,14 +12,14 @@ const generator = {
     },
     {
       type: 'add',
-      path: './index.js',
+      path: './src/index.js',
       templateFile: './index.js.hbs',
       abortOnFail: true,
     },
     {
       type: 'add',
-      path: './registerModule.js',
-      templateFile: './registerModule.js.hbs',
+      path: './src/register.js',
+      templateFile: './register.js.hbs',
       abortOnFail: true,
     },
   ].map(item => {

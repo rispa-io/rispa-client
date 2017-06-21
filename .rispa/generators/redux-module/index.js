@@ -11,7 +11,7 @@ const generator = {
       default: 'items',
       validate: value => {
         if ((/.+/).test(value)) {
-          if (fs.existsSync(path.resolve(process.cwd(), `./redux/modules/${value}`))) {
+          if (fs.existsSync(path.resolve(process.cwd(), `./src/redux/modules/${value}`))) {
             return 'A redux module with this name already exists'
           }
 
@@ -25,19 +25,19 @@ const generator = {
   actions: () => ([
     {
       type: 'add',
-      path: './redux/modules/{{camelCase name}}/index.js',
+      path: './src/redux/modules/{{camelCase name}}/index.js',
       templateFile: './index.js.hbs',
       abortOnFail: true,
     },
     {
       type: 'add',
-      path: './redux/modules/{{camelCase name}}/selector.js',
+      path: './src/redux/modules/{{camelCase name}}/selector.js',
       templateFile: './selector.js.hbs',
       abortOnFail: true,
     },
     {
       type: 'add',
-      path: './redux/modules/{{camelCase name}}/index.test.js',
+      path: './src/redux/modules/{{camelCase name}}/index.test.js',
       templateFile: './index.test.js.hbs',
       abortOnFail: true,
     },

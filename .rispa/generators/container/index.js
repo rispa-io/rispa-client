@@ -2,17 +2,17 @@ import fs from 'fs'
 import path from 'path'
 
 const generator = {
-  description: 'Generator for client component',
+  description: 'Generator for client container',
   prompts: [
     {
       type: 'input',
       name: 'name',
       message: 'How should it be called?',
-      default: 'Component',
+      default: 'Container',
       validate: value => {
         if ((/.+/).test(value)) {
-          if (fs.existsSync(path.resolve(process.cwd(), `./src/components/${value}`))) {
-            return 'A component with this name already exists'
+          if (fs.existsSync(path.resolve(process.cwd(), `./src/containers/${value}`))) {
+            return 'A container with this name already exists'
           }
 
           return true
@@ -25,25 +25,19 @@ const generator = {
   actions: () => ([
     {
       type: 'add',
-      path: './src/components/{{properCase name}}/index.js',
+      path: './src/containers/{{properCase name}}/index.js',
       templateFile: './index.js.hbs',
       abortOnFail: true,
     },
     {
       type: 'add',
-      path: './src/components/{{properCase name}}/{{properCase name}}.js',
+      path: './src/containers/{{properCase name}}/{{properCase name}}.js',
       templateFile: './js.hbs',
       abortOnFail: true,
     },
     {
       type: 'add',
-      path: './src/components/{{properCase name}}/{{properCase name}}.sss',
-      templateFile: './sss.hbs',
-      abortOnFail: true,
-    },
-    {
-      type: 'add',
-      path: './src/components/{{properCase name}}/{{properCase name}}.test.js',
+      path: './src/containers/{{properCase name}}/{{properCase name}}.test.js',
       templateFile: './test.js.hbs',
       abortOnFail: true,
     },
