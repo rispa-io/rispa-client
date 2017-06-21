@@ -6,7 +6,7 @@ const generator = {
   actions: () => ([
     {
       type: 'add',
-      path: './redux/modules/reducer.js',
+      path: './src/redux/modules/reducer.js',
       templateFile: './reducer.js.hbs',
       abortOnFail: true,
     },
