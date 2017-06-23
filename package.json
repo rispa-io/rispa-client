@@ -8,6 +8,7 @@
     "@rispa/routes": "^0.1.0",
     "@rispa/server": "^0.1.0",
     "@rispa/vendor": "^0.1.0",
+    "bluebird": "^3.5.0",
     "offline-plugin": "^4.8.1",
     "webpack": "^2.4.1",
     "history": "^4.6.1",
@@ -16,7 +17,8 @@
     "react-dom": "15.5.4",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
-    "react-router-redux": "^5.0.0-alpha.6"
+    "react-router-redux": "^5.0.0-alpha.6",
+    "webpack-bundle-analyzer": "^2.8.2"
   },
   "devDependencies": {
     "@rispa/eslint-config": "^1.0.0",
