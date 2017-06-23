@@ -45,7 +45,7 @@ const startApp = () => {
   if (module.hot) {
     module.hot.accept('@rispa/routes', () => {
       when.clear()
-      const newRoutes = require('@rispa/routes') // eslint-disable-line global-require
+      const newRoutes = require('@rispa/routes').default // eslint-disable-line global-require
       render(newRoutes)
     })
   }
