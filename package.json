@@ -8,6 +8,8 @@
     "@rispa/routes": "^0.1.0",
     "@rispa/server": "^0.1.0",
     "@rispa/vendor": "^0.1.0",
+    "offline-plugin": "^4.8.1",
+    "webpack": "^2.4.1",
     "history": "^4.6.1",
     "react": "15.5.4",
     "redux": "^3.6.0",

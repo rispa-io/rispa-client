@@ -45,7 +45,7 @@ const startApp = () => {
   if (module.hot) {
     module.hot.accept('@rispa/routes', () => {
       when.clear()
-      const newRoutes = require('@rispa/routes') // eslint-disable-line global-require
+      const newRoutes = require('@rispa/routes').default // eslint-disable-line global-require
       render(newRoutes)
     })
   }
@@ -63,4 +63,12 @@ if (
   Object.keys(window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers).length
 ) {
   window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers = {}
+}
+
+//
+// offline setup
+//
+if (process.env.NODE_ENV === 'production' && !process.env.DISABLE_OFFLINE) {
+  /* eslint-disable global-require */
+  require('offline-plugin/runtime').install()
 }
