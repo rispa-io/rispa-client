@@ -3,7 +3,7 @@ import { Loadable } from '@rispa/vendor/loadable'
 const loadable = (store, when) => Loadable({
   LoadingComponent: () => null,
   loader: () => import('./register'),
-  resolveModule: module => module(store, when),
+  resolveModule: module => module.default(store, when),
   webpackRequireWeakId: () => require.resolveWeak('./register'),
 })
 
