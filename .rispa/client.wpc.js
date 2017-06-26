@@ -1,5 +1,8 @@
 import path from 'path'
+import OfflinePlugin from 'offline-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+
+const offline = process.env.NODE_ENV === 'production' && !process.env.DISABLE_OFFLINE
 
 export default context => ({
   entry: [
@@ -16,6 +19,7 @@ export default context => ({
     new context.webpack.DefinePlugin({
       'process.env.DISABLE_REACT_DEVTOOLS': JSON.stringify(process.env.DISABLE_REACT_DEVTOOLS),
       'process.env.DISABLE_REDUX_DEVTOOLS': JSON.stringify(process.env.DISABLE_REDUX_DEVTOOLS),
+      'process.env.DISABLE_OFFLINE': JSON.stringify(process.env.DISABLE_OFFLINE),
     }),
     new context.webpack.ProvidePlugin({
       Promise: require.resolve('bluebird'),
@@ -31,6 +35,16 @@ export default context => ({
     }),
     process.env.ANALYZE_BUNDLE ? new BundleAnalyzerPlugin({
       analyzerMode: 'static',
+    }) : null,
+    offline ? new OfflinePlugin({
+      externals: [
+        '/shell',
+      ],
+      ServiceWorker: {
+        events: true,
+        navigateFallbackURL: '/shell',
+      },
+      AppCache: false,
     }) : null,
   ].filter(Boolean),
 })

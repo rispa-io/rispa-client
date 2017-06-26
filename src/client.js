@@ -64,3 +64,11 @@ if (
 ) {
   window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers = {}
 }
+
+//
+// offline setup
+//
+if (process.env.NODE_ENV === 'production' && !process.env.DISABLE_OFFLINE) {
+  /* eslint-disable global-require */
+  require('offline-plugin/runtime').install()
+}

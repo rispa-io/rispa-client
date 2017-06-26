@@ -9,6 +9,8 @@
     "@rispa/server": "^0.1.0",
     "@rispa/vendor": "^0.1.0",
     "bluebird": "^3.5.0",
+    "offline-plugin": "^4.8.1",
+    "webpack": "^2.4.1",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
