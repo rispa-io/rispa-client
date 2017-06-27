@@ -7,7 +7,7 @@ import {
   configureStore,
   createWhen,
 } from '@rispa/redux'
-import { CookiesProvider } from '@rispa/vendor/cookies'
+import { CookiesProvider } from 'react-cookie'
 import createHistory from 'history/createBrowserHistory'
 import routes from '@rispa/routes'
 

@@ -1,10 +1,9 @@
-import { Loadable } from '@rispa/vendor/loadable'
+import { Loadable } from 'react-loadable'
 
 const loadable = (store, when) => Loadable({
   LoadingComponent: () => null,
   loader: () => import('./register'),
   resolveModule: module => module.default(store, when),
-  webpackRequireWeakId: () => require.resolveWeak('./register'),
 })
 
 const createRoute = (store, when) => ({
