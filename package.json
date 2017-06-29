@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "rispa client plugin",
   "dependencies": {
-    "@rispa/core": "^0.1.0",
-    "@rispa/redux": "^0.1.0",
-    "@rispa/routes": "^0.1.0",
-    "@rispa/server": "^0.1.0",
+    "@rispa/core": "^1.0.0",
+    "@rispa/redux": "^1.0.0",
+    "@rispa/routes": "^1.0.0",
+    "@rispa/server": "^1.0.0",
     "react-cookie": "^2.0.7",
     "bluebird": "^3.5.0",
     "offline-plugin": "^4.8.1",
@@ -24,7 +24,7 @@
     "webpack-bundle-analyzer": "^2.8.2"
   },
   "devDependencies": {
-    "@rispa/eslint-config": "^1.0.0",
+    "@rispa/eslint-config": "^1.1.0",
     "react-hot-loader": "^3.0.0-beta.6"
   },
   "scripts": {
