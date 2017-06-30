@@ -1,4 +1,4 @@
-import { Loadable } from 'react-loadable'
+import Loadable from 'react-loadable'
 
 const loadable = (store, when) => Loadable({
   LoadingComponent: () => null,
@@ -7,7 +7,7 @@ const loadable = (store, when) => Loadable({
 })
 
 const createRoute = (store, when) => ({
-  path: '/',
+  path: '{{properRoute route}}',
   component: loadable(store, when),
 })
 
