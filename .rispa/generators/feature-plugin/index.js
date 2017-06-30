@@ -33,7 +33,7 @@ const generator = {
     {
       type: 'modify',
       path: '../rispa-routes/index.js',
-      pattern: /(\/\/ \$\$ ADD HERE ~~ Do not remove)/gi,
+      pattern: /(\/\/ \$\$\$ ADD HERE ~~ Do not remove)/gi,
       template: 'require(\'{{featureName}}\').default,\n    // $$$ ADD HERE ~~ Do not remove',
     },
     {
