@@ -18,9 +18,7 @@ export default plop => {
     return 'Bootstrap completed'
   })
 
-  plop.addHelper('properRoute', (route) => {
-    return `/${route.replace(/^\//, '')}`
-  })
+  plop.addHelper('properRoute', route => `/${route.replace(/^\//, '')}`)
 
   plop.setGenerator('component', componentGenerator)
   plop.setGenerator('container', containerGenerator)
