@@ -24,11 +24,11 @@
     "webpack-bundle-analyzer": "^2.8.2"
   },
   "devDependencies": {
-    "@rispa/eslint-config": "^1.1.0",
+    "@rispa/eslint-config": "^2.0.0",
     "react-hot-loader": "^3.0.0-beta.6"
   },
   "scripts": {
-    "lint": "rispa-eslint",
-    "lint:fix": "rispa-eslint --fix"
+    "lint": "rispa-eslint .",
+    "lint:fix": "rispa-eslint . --fix"
   }
 }
