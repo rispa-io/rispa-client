@@ -1,6 +1,6 @@
 {
   "name": "@rispa/client",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "rispa client plugin",
   "dependencies": {
     "@rispa/core": "^1.0.0",
@@ -11,6 +11,7 @@
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
     "bluebird": "^3.5.0",
+    "cross-spawn": "^5.1.0",
     "history": "^4.6.1",
     "offline-plugin": "^4.8.1",
     "react": "15.5.4",
@@ -21,8 +22,7 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
     "webpack": "^2.4.1",
-    "webpack-bundle-analyzer": "^2.8.2",
-    "cross-spawn": "^5.1.0"
+    "webpack-bundle-analyzer": "^2.8.2"
   },
   "devDependencies": {
     "@rispa/eslint-config": "^2.0.0",
