@@ -1,8 +1,16 @@
 import path from 'path'
+// import spawn from 'cross-spawn'
 
 const generator = {
   description: 'Generator for feature plugin',
-  prompts: [],
+  prompts: [
+    {
+      type: 'input',
+      name: 'route',
+      message: 'Enter plugin router path:',
+      default: '/path',
+    },
+  ],
   actions: () => ([
     {
       type: 'add',
@@ -22,8 +30,25 @@ const generator = {
       templateFile: './register.js.hbs',
       abortOnFail: true,
     },
+    {
+      type: 'modify',
+      path: '../rispa-routes/index.js',
+      pattern: /(\/\/ ~~ ADD HERE ~~ Do not remove)/gi,
+      template: 'require(\'{{featureName}}\').default,\n    // ~~ ADD HERE ~~ Do not remove',
+    },
+    {
+      type: 'modify',
+      path: '../rispa-routes/package.json',
+      pattern: /("dependencies"\:\s\{)/gi,
+      template: '"dependencies": {\n    "{{featureName}}": "0.1.0",',
+    },
+    {
+      type: 'bootstrap',
+    },
   ].map(item => {
-    item.templateFile = path.resolve(__dirname, item.templateFile)
+    if (item.templateFile) {
+      item.templateFile = path.resolve(__dirname, item.templateFile)
+    }
     return item
   })),
 }

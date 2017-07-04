@@ -21,14 +21,15 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
     "webpack": "^2.4.1",
-    "webpack-bundle-analyzer": "^2.8.2"
+    "webpack-bundle-analyzer": "^2.8.2",
+    "cross-spawn": "^5.1.0"
   },
   "devDependencies": {
-    "@rispa/eslint-config": "^1.1.0",
+    "@rispa/eslint-config": "^2.0.0",
     "react-hot-loader": "^3.0.0-beta.6"
   },
   "scripts": {
-    "lint": "rispa-eslint",
-    "lint:fix": "rispa-eslint --fix"
+    "lint": "rispa-eslint .",
+    "lint:fix": "rispa-eslint . --fix"
   }
 }
