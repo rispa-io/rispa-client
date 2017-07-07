@@ -53,21 +53,9 @@ const generator = {
       templateFile: './.babelrc.hbs',
       abortOnFail: true,
     },
-    {
-      type: 'modify',
-      path: '../rispa-routes/index.js',
-      pattern: /(\/\/ ~~ ADD HERE ~~ Do not remove)/gi,
-      template: 'require(\'{{packageName}}\').default,\n    // ~~ ADD HERE ~~ Do not remove',
-    },
-    {
-      type: 'modify',
-      path: '../rispa-routes/package.json',
-      pattern: /("dependencies":\s\{)/gi,
-      template: '"dependencies": {\n    "{{packageName}}": "0.1.0",',
-    },
   ].map(item => {
     if (item.templateFile) {
-      item.templateFile = path.resolve(__dirname, item.templateFile)
+      item.templateFile = path.resolve(__dirname, '../feature-plugin', item.templateFile)
     }
     return item
   })),
