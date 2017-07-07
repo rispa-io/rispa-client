@@ -10,7 +10,7 @@ const registerWhen = () => {
   // when(match('/'), () => action(), true)
 }
 
-const registerModule = (context) => {
+const registerModule = context => {
   registerReducer(context)
   registerWhen(context)
 

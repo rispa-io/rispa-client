@@ -7,7 +7,7 @@ import {
   configureStore,
   createWhen,
 } from '@rispa/redux'
-import { CookiesProvider } from 'react-cookie'
+import { CookiesProvider, Cookies } from 'react-cookie'
 import createHistory from 'history/createBrowserHistory'
 import routes from '@rispa/routes'
 
@@ -24,6 +24,7 @@ const startApp = () => {
     reduxDevtoolCompose,
   )
   const when = createWhen(store, window.RISPA_INITIAL_STATE)
+  const cookies = new Cookies()
 
   const render = getRoutes => {
     ReactDOM.render(
@@ -31,7 +32,7 @@ const startApp = () => {
         <Provider store={store}>
           <CookiesProvider>
             <ConnectedRouter history={history}>
-              {getRoutes(store, when)}
+              {getRoutes({ store, when, cookies })}
             </ConnectedRouter>
           </CookiesProvider>
         </Provider>
