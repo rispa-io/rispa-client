@@ -1,7 +1,7 @@
 import path from 'path'
-// import spawn from 'cross-spawn'
 
 const generator = {
+  isFeatureGenerator: true,
   description: 'Generator for feature plugin',
   prompts: [
     {
@@ -34,16 +34,13 @@ const generator = {
       type: 'modify',
       path: '../rispa-routes/index.js',
       pattern: /(\/\/ ~~ ADD HERE ~~ Do not remove)/gi,
-      template: 'require(\'{{featureName}}\').default,\n    // ~~ ADD HERE ~~ Do not remove',
+      template: 'require(\'{{pluginName}}\').default,\n    // ~~ ADD HERE ~~ Do not remove',
     },
     {
       type: 'modify',
       path: '../rispa-routes/package.json',
-      pattern: /("dependencies"\:\s\{)/gi,
-      template: '"dependencies": {\n    "{{featureName}}": "0.1.0",',
-    },
-    {
-      type: 'bootstrap',
+      pattern: /("dependencies":\s\{)/gi,
+      template: '"dependencies": {\n    "{{pluginName}}": "0.1.0",',
     },
   ].map(item => {
     if (item.templateFile) {
