@@ -10,9 +10,9 @@ const registerWhen = () => {
   // when(match('/'), () => action(), true)
 }
 
-const registerModule = (store) => {
-  registerReducer()
-  registerWhen()
+const registerModule = (context) => {
+  registerReducer(context)
+  registerWhen(context)
 
   // return BaseComponent
 }
