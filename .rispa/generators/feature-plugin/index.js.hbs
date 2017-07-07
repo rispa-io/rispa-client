@@ -1,14 +1,14 @@
 import Loadable from 'react-loadable'
 
-const loadable = (store, when) => Loadable({
+const loadable = context => Loadable({
   LoadingComponent: () => null,
   loader: () => import('./register'),
-  resolveModule: module => module.default(store, when),
+  resolveModule: module => module.default(context),
 })
 
-const createRoute = (store, when) => ({
+const createRoute = context => ({
   path: '{{properRoute route}}',
-  component: loadable(store, when),
+  component: loadable(context),
 })
 
 export default createRoute
