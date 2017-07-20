@@ -37,12 +37,6 @@ const generator = {
     },
     {
       type: 'add',
-      path: './.eslintrc.js',
-      templateFile: './.eslintrc.js.hbs',
-      abortOnFail: true,
-    },
-    {
-      type: 'add',
       path: './src/__mocks__/stylesMock.js',
       templateFile: './stylesMock.js.hbs',
       abortOnFail: true,
