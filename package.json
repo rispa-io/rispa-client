@@ -1,12 +1,12 @@
 {
   "name": "@rispa/client",
-  "version": "2.1.1",
+  "version": "3.0.1",
   "description": "rispa client plugin",
   "dependencies": {
-    "@rispa/core": "2.1.1",
-    "@rispa/redux": "2.1.1",
-    "@rispa/routes": "2.1.1",
-    "@rispa/server": "2.1.1",
+    "@rispa/core": "3.0.1",
+    "@rispa/redux": "3.0.1",
+    "@rispa/routes": "3.0.1",
+    "@rispa/server": "3.0.1",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
