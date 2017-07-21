@@ -23,7 +23,7 @@
     "@webpack-blocks/webpack2": "^0.4.0"
   },
   "devDependencies": {
-    "@rispa/eslint-config": "2.0.1",
+    "@rispa/eslint-config": ">=3.0.0",
     "react-hot-loader": "^3.0.0-beta.6"
   },
   "scripts": {
