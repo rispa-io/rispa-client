@@ -1,21 +1,12 @@
-import { init, start, build, generator } from '@rispa/core/events'
-import { server } from '@rispa/server/events'
-import webpackClientConfig from './client.wpc'
-import getBabelOptions from './babel-options'
-import runGenerator from './generators'
+const WebpackPluginApi = require('@rispa/webpack')
+const ClientPlugin = require('../src/ClientPlugin')
 
-const activator = on => {
-  const handler = registry => {
-    registry.add('webpack.client', webpackClientConfig)
-    registry.add('babel', getBabelOptions)
-  }
-  on(init(server), handler)
-  on(init(build), handler)
-
-  on(start(generator), (registry, data) => {
-    runGenerator(data)
-  })
+function init(context, config) {
+  return new ClientPlugin(context, config)
 }
 
-export default activator
+const after = [WebpackPluginApi.pluginName]
 
+module.exports = init
+
+module.exports.after = after

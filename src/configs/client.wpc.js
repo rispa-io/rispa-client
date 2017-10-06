@@ -1,15 +1,9 @@
-import path from 'path'
-import OfflinePlugin from 'offline-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import { group, env } from '@webpack-blocks/webpack2'
+const OfflinePlugin = require('offline-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { group, env } = require('@webpack-blocks/webpack2')
 
-export default group([
+module.exports = group([
   context => ({
-    entry: {
-      main: [
-        path.resolve(__dirname, '../src/client.js'),
-      ],
-    },
     plugins: [
       new context.webpack.DefinePlugin({
         'process.env.DISABLE_REACT_DEVTOOLS': JSON.stringify(process.env.DISABLE_REACT_DEVTOOLS),
