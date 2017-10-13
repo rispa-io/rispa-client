@@ -3,8 +3,8 @@ const WebpackPluginApi = require('@rispa/webpack')
 const clientWebpackConfig = require('./configs/client.wpc')
 
 class ClientPlugin extends PluginInstance {
-  constructor(context, config) {
-    super(context, config)
+  constructor(context) {
+    super(context)
 
     this.webpack = context.get(WebpackPluginApi.pluginName)
   }
