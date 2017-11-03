@@ -10,7 +10,7 @@ class ClientPlugin extends PluginInstance {
   }
 
   start() {
-    this.webpack.addClientEntry('main', require.resolve('./clientEntry'))
+    this.webpack.addClientEntry('main', require.resolve('../lib/clientEntry'))
     this.webpack.addClientConfig(clientWebpackConfig)
   }
 }
