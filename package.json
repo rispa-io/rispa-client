@@ -19,13 +19,13 @@
     "react-cookie": "^2.0.7",
     "react-dom": "15.5.4",
     "react-router-dom": "^4.1.1",
+    "react-hot-loader": "^3.0.0-beta.6",
     "webpack": "^2.4.1",
     "webpack-bundle-analyzer": "^2.8.2",
     "@webpack-blocks/webpack2": "^0.4.0"
   },
   "devDependencies": {
-    "@rispa/eslint-config": ">=3.0.0",
-    "react-hot-loader": "^3.0.0-beta.6"
+    "@rispa/eslint-config": ">=3.0.0"
   },
   "scripts": {
     "lint": "rispa-eslint .",
