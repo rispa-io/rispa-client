@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+const fs from 'fs'
+const path from 'path'
 
 const generator = {
   description: 'Generator for client component',
@@ -53,4 +53,4 @@ const generator = {
   })),
 }
 
-export default generator
+module.exports = generator

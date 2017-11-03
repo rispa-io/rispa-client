@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+const fs = require('fs')
+const path = require('path')
 
 const generator = {
   description: 'Generator for redux module',
@@ -47,4 +47,4 @@ const generator = {
   })),
 }
 
-export default generator
+module.exports = generator
