@@ -1,4 +1,4 @@
-import path from 'path'
+const path = require('path')
 
 const generator = {
   isFeatureGenerator: true,
@@ -67,4 +67,4 @@ const generator = {
   })),
 }
 
-export default generator
+module.exports = generator

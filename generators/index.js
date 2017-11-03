@@ -3,14 +3,14 @@
  *
  * Exports the generators so plop knows them
  */
-import componentGenerator from './component'
-import containerGenerator from './container'
-import reduxGenerator from './redux'
-import reduxModuleGenerator from './redux-module'
-import featurePluginGenerator from './feature-plugin'
-import featurePluginGeneratorWithoutRoute from './feature-plugin-without-route'
+const componentGenerator = require('./component')
+const containerGenerator = require('./container')
+const reduxGenerator = require('./redux')
+const reduxModuleGenerator = require('./redux-module')
+const featurePluginGenerator = require('./feature-plugin')
+const featurePluginGeneratorWithoutRoute = require('./feature-plugin-without-route')
 
-export default plop => {
+module.exports = plop => {
   plop.addHelper('properRoute', route => `/${route.replace(/^\//, '')}`)
 
   plop.setGenerator('component', componentGenerator)
