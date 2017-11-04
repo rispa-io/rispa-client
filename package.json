@@ -3,8 +3,8 @@
   "rispa:name": "react-client",
   "version": "4.1.1",
   "description": "Rispa Client plugin",
-  "rispa:activator": "./src/activator.js",
-  "rispa:generators": "./src/generators/index.js",
+  "rispa:activator": "./activator/index.js",
+  "rispa:generators": "./generators/index.js",
   "dependencies": {
     "@rispa/core": "4.1.x",
     "@rispa/redux": "4.1.x",
@@ -25,9 +25,11 @@
     "@webpack-blocks/webpack2": "^0.4.0"
   },
   "devDependencies": {
-    "@rispa/eslint-config": ">=3.0.0"
+    "@rispa/eslint-config": ">=3.0.0",
+    "babel-cli": "^6.26.0"
   },
   "scripts": {
+    "compile": "babel src --out-dir lib --ignore spec.js,test.js",
     "lint": "rispa-eslint .",
     "lint:fix": "rispa-eslint . --fix"
   }
