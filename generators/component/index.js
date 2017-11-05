@@ -1,5 +1,5 @@
-const fs from 'fs'
-const path from 'path'
+const fs = require('fs')
+const path = require('path')
 
 const generator = {
   description: 'Generator for client component',
