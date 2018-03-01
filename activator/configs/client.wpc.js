@@ -1,15 +1,10 @@
 const OfflinePlugin = require('offline-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-const { group, env } = require('@webpack-blocks/webpack2')
+const { group, env, defineConstants } = require('@webpack-blocks/webpack2')
 
 module.exports = group([
   context => ({
     plugins: [
-      new context.webpack.DefinePlugin({
-        'process.env.DISABLE_REACT_DEVTOOLS': JSON.stringify(process.env.DISABLE_REACT_DEVTOOLS),
-        'process.env.DISABLE_REDUX_DEVTOOLS': JSON.stringify(process.env.DISABLE_REDUX_DEVTOOLS),
-        'process.env.DISABLE_OFFLINE': JSON.stringify(process.env.DISABLE_OFFLINE),
-      }),
       new context.webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         chunks: ['main'],
@@ -19,6 +14,11 @@ module.exports = group([
         analyzerMode: 'static',
       }) : null,
     ].filter(Boolean),
+  }),
+  defineConstants({
+    'process.env.DISABLE_REACT_DEVTOOLS': process.env.DISABLE_REACT_DEVTOOLS,
+    'process.env.DISABLE_REDUX_DEVTOOLS': process.env.DISABLE_REDUX_DEVTOOLS,
+    'process.env.DISABLE_OFFLINE': process.env.DISABLE_OFFLINE,
   }),
   env('development', [
     () => ({
