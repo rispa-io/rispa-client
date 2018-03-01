@@ -17,12 +17,12 @@ const reduxDevtoolCompose = !process.env.DISABLE_REDUX_DEVTOOLS
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ // eslint-disable-line no-underscore-dangle
   : null
 
-const store = configureStore(
+const store = configureStore({
   history,
-  window.RISPA_INITIAL_STATE,
-  reduxDevtoolCompose,
-)
-const when = createWhen(store, window.RISPA_INITIAL_STATE)
+  data: window.RISPA_INITIAL_STATE,
+  customCompose: reduxDevtoolCompose,
+})
+const when = createWhen({ store })
 const cookies = new Cookies()
 
 const render = getRoutes => {
