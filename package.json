@@ -1,7 +1,7 @@
 {
   "name": "@rispa/client",
   "rispa:name": "react-client",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "Rispa Client plugin",
   "rispa:activator": "./activator/index.js",
   "rispa:generators": "./generators/index.js",
