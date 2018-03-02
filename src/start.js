@@ -13,7 +13,7 @@ import routes from '@rispa/routes'
 
 const history = createHistory()
 
-const reduxDevtoolCompose = !process.env.DISABLE_REDUX_DEVTOOLS
+const reduxDevtoolCompose = !process.env.DISABLE_REDUX_DEVTOOLS && process.env.NODE_ENV !== 'production'
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ // eslint-disable-line no-underscore-dangle
   : null
 
