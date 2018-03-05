@@ -3,6 +3,11 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { group, env, defineConstants } = require('@webpack-blocks/webpack2')
 
 module.exports = group([
+  defineConstants({
+    'process.env.DISABLE_REACT_DEVTOOLS': process.env.DISABLE_REACT_DEVTOOLS,
+    'process.env.DISABLE_REDUX_DEVTOOLS': process.env.DISABLE_REDUX_DEVTOOLS,
+    'process.env.DISABLE_OFFLINE': process.env.DISABLE_OFFLINE,
+  }),
   context => ({
     plugins: [
       new context.webpack.optimize.CommonsChunkPlugin({
@@ -10,15 +15,10 @@ module.exports = group([
         chunks: ['main'],
         minChunks: Infinity,
       }),
-      process.env.ANALYZE_BUNDLE ? new BundleAnalyzerPlugin({
+      process.env.ANALYZE_BUNDLE && new BundleAnalyzerPlugin({
         analyzerMode: 'static',
-      }) : null,
+      }),
     ].filter(Boolean),
-  }),
-  defineConstants({
-    'process.env.DISABLE_REACT_DEVTOOLS': process.env.DISABLE_REACT_DEVTOOLS,
-    'process.env.DISABLE_REDUX_DEVTOOLS': process.env.DISABLE_REDUX_DEVTOOLS,
-    'process.env.DISABLE_OFFLINE': process.env.DISABLE_OFFLINE,
   }),
   env('development', [
     () => ({
@@ -66,7 +66,7 @@ module.exports = group([
         },
       },
       plugins: [
-        !process.env.DISABLE_OFFLINE ? new OfflinePlugin({
+        !process.env.DISABLE_OFFLINE && new OfflinePlugin({
           externals: [
             '/shell',
           ],
@@ -76,7 +76,7 @@ module.exports = group([
             navigateFallbackURL: '/shell',
           },
           AppCache: false,
-        }) : null,
+        }),
       ].filter(Boolean),
     }),
   ]),

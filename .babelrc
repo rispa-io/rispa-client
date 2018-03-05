@@ -1,5 +1,10 @@
 {
   "presets": [
-    "@rispa/babel/lib/babelConfig"
+    "react",
+    ["env", {
+      "targets": {
+        "chrome": 56
+      }
+    }]
   ]
 }
