@@ -17,7 +17,6 @@
     "@rispa/webpack": "4.2.x",
     "@rispa/babel": "4.2.x",
     "bluebird": "^3.5.1",
-    "cross-spawn": "^6.0.5",
     "history": "^4.7.2",
     "offline-plugin": "^4.9.0",
     "react": "^15.6.2",
