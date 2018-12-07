@@ -14,15 +14,16 @@
     "bluebird": "^3.5.0",
     "cross-spawn": "^5.1.0",
     "history": "^4.6.1",
-    "offline-plugin": "^4.8.1",
+    "offline-plugin": "^5.0.6",
     "react": "15.5.4",
     "react-cookie": "^2.0.7",
     "react-dom": "15.5.4",
     "react-router-dom": "^4.1.1",
     "react-hot-loader": "^3.0.0-beta.6",
-    "webpack": "^2.4.1",
-    "webpack-bundle-analyzer": "^2.8.2",
-    "@webpack-blocks/webpack2": "^0.4.0"
+    "webpack": "^4.27.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "@webpack-blocks/webpack": "^2.0.0-alpha"
   },
   "devDependencies": {
     "@rispa/eslint-config": ">=3.0.0",

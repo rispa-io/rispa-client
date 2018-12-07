@@ -1,19 +1,25 @@
 const OfflinePlugin = require('offline-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-const { group, env, defineConstants } = require('@webpack-blocks/webpack2')
+const { group, env, defineConstants } = require('@webpack-blocks/webpack')
 
 module.exports = group([
-  context => ({
+  (context, { merge }) => merge({
     plugins: [
-      new context.webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        chunks: ['main'],
-        minChunks: Infinity,
-      }),
       process.env.ANALYZE_BUNDLE ? new BundleAnalyzerPlugin({
         analyzerMode: 'static',
       }) : null,
     ].filter(Boolean),
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            name: 'vendor',
+            chunks: 'all',
+            minChunks: Infinity,
+          },
+        },
+      },
+    },
   }),
   defineConstants({
     'process.env.DISABLE_REACT_DEVTOOLS': process.env.DISABLE_REACT_DEVTOOLS,
@@ -21,7 +27,7 @@ module.exports = group([
     'process.env.DISABLE_OFFLINE': process.env.DISABLE_OFFLINE,
   }),
   env('development', [
-    () => ({
+    (context, { merge }) => merge({
       entry: {
         vendor: [
           require.resolve('react-hot-loader/patch'),
@@ -45,7 +51,7 @@ module.exports = group([
     }),
   ]),
   env('production', [
-    () => ({
+    (context, { merge }) => merge({
       entry: {
         vendor: [
           require.resolve('react/dist/react.min.js'),
