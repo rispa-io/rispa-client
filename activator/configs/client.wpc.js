@@ -1,14 +1,8 @@
 const OfflinePlugin = require('offline-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { group, env, defineConstants } = require('@webpack-blocks/webpack')
 
 module.exports = group([
   (context, { merge }) => merge({
-    plugins: [
-      process.env.ANALYZE_BUNDLE ? new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-      }) : null,
-    ].filter(Boolean),
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -30,7 +24,7 @@ module.exports = group([
     (context, { merge }) => merge({
       entry: {
         vendor: [
-          require.resolve('react-hot-loader/patch'),
+          require.resolve('react-hot-loader'),
           require.resolve('bluebird'),
           require.resolve('react'),
           require.resolve('react-dom'),
@@ -41,6 +35,7 @@ module.exports = group([
       },
       resolve: {
         alias: {
+          'react-hot-loader': require.resolve('react-hot-loader'),
           react$: require.resolve('react'),
           'react-dom$': require.resolve('react-dom'),
           'react-router$': require.resolve('react-router'),
