@@ -36,7 +36,7 @@ const render = getRoutes => {
         </CookiesProvider>
       </Provider>
     </AppContainer>,
-    document.getElementById('root')
+    document.getElementById('content')
   )
 }
 
