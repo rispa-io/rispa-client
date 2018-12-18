@@ -1,9 +1,8 @@
 import Loadable from 'react-loadable'
 
 const loadable = context => Loadable({
-  LoadingComponent: () => null,
-  loader: () => import('./register'),
-  resolveModule: module => module.default(context),
+  loader: () => import('./register').then(module => module.default(context)),
+  loading: () => null,
 })
 
 const createRoute = context => ({
