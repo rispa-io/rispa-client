@@ -31,7 +31,7 @@
     "@babel/core": "^7.2.2"
   },
   "scripts": {
-    "compile": "babel src --out-dir lib --ignore spec.js,test.js",
+    "compile": "rm -rf lib && babel src --out-dir lib --ignore spec.js,test.js",
     "lint": "rispa-eslint .",
     "lint:fix": "rispa-eslint . --fix"
   },
