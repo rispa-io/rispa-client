@@ -8,7 +8,7 @@ import {
   createWhen,
 } from '@rispa/redux'
 import { CookiesProvider, Cookies } from 'react-cookie'
-import createHistory from 'history/createBrowserHistory'
+import { createBrowserHistory as createHistory } from 'history'
 import routes from '@rispa/routes'
 
 const history = createHistory()

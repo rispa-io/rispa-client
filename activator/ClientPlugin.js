@@ -13,7 +13,6 @@ class ClientPlugin extends PluginInstance {
   }
 
   start() {
-    this.webpack.addClientEntry('main', require.resolve('../lib/entry'))
     this.webpack.addClientConfig(clientWebpackConfig)
     this.babel.addConfig(babelConfig)
   }
