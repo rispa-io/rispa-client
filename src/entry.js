@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { hydrate } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import {
   Provider,
@@ -26,7 +26,7 @@ const when = createWhen({ store })
 const cookies = new Cookies()
 
 const render = getRoutes => {
-  ReactDOM.render(
+  hydrate(
     <AppContainer>
       <Provider store={store}>
         <CookiesProvider>

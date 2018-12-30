@@ -5,6 +5,7 @@ const { group, env, defineConstants, entryPoint } = require('@webpack-blocks/web
 module.exports = group([
   entryPoint({
     client: [
+      require.resolve('@babel/polyfill'),
       path.resolve(__dirname, '../../lib/entry.js'),
     ],
   }),

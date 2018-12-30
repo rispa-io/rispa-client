@@ -14,7 +14,7 @@ class ClientPlugin extends PluginInstance {
 
   start() {
     this.webpack.addClientConfig(clientWebpackConfig)
-    this.babel.addConfig(babelConfig)
+    this.babel.addClientConfig(babelConfig)
   }
 }
 
